@@ -49,7 +49,7 @@ where
     /// any call to V8. The Ssr module needs this function call before any other
     /// operation. It cannot be called more than once per process.
     pub fn create_platform() {
-        let platform = v8::new_default_platform(0, false).make_shared();
+        let platform = v8::new_unprotected_default_platform(0, false).make_shared();
         v8::V8::initialize_platform(platform);
         v8::V8::initialize();
     }
